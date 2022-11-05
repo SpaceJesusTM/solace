@@ -16,4 +16,4 @@ async def on_message(message):
         await message.channel.send('Hello!')
 
 if __name__ == "__main__":
-    client.run('MTAzODQ4MjAwOTU0MDAxMDA5OA.GibVJb.cIdNMgAt6n5xe5RpAJPPCh4Xn4ZqRcYqvDzlME')
+    client.run('TOKEN')
