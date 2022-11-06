@@ -64,16 +64,12 @@ class discussion(commands.Cog):
             await message.edit(content=f"Page {cur_page}/{pages}")
             # print(self.threads)
             await ctx.send(f"Reply to Thread {th_id} created.")
-            # getting the message object for editing and reacting
     
     @commands.command()
     async def view_thread(self, ctx, th_id):
         if self.threads_channel == "":
             await ctx.send("Please set the threads channel first!")
             return
-        # curr_id = th_id
-        # if not curr_id.is_digit():
-        #     return await ctx.send("Please input an integer.")
         dict_key = int(th_id)
         dict_value = self.threads[dict_key]
         embeds = dict_value[2]
@@ -88,13 +84,10 @@ class discussion(commands.Cog):
 
         def check(reaction, user):
             return user == ctx.author and str(reaction.emoji) in ["◀️", "▶️"]
-            # This makes sure nobody except the command sender can interact with the "menu"
 
         while True:
             try:
                 reaction, user = await self.bot.wait_for("reaction_add", timeout=60, check=check)
-                # waiting for a reaction to be added - times out after x seconds, 60 in this
-                # example
 
                 if str(reaction.emoji) == "▶️" and cur_page != pages:
                     cur_page += 1
@@ -110,8 +103,7 @@ class discussion(commands.Cog):
 
                 else:
                     await message.remove_reaction(reaction, user)
-                    # removes reactions if the user tries to go forward on the last page or
-                    # backwards on the first page
+
             except asyncio.TimeoutError:
                 await embed.delete()
                 await message.delete()
@@ -169,7 +161,6 @@ class discussion(commands.Cog):
             self.threads[dict_key] = dict_value 
             # print(self.threads)
             await ctx.send("Thread created.")
-            # getting the message object for editing and reacting
         else:
             await ctx.send('New Thread Cancelled')
     
