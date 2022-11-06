@@ -1,19 +1,13 @@
 import discord
 from discord.ext import commands
+from cogs import discussion
 
-client = commands.Bot(command_prefix = "!", intents = discord.Intents.all())
+bot = commands.Bot(command_prefix = "!", intents = discord.Intents.all())
 
-@client.event
+@bot.event
 async def on_ready():
+    await bot.add_cog(discussion.discussion(bot))
     print("Bot is ready.")
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content.startswith('!hello'):
-        await message.channel.send('Hello!')
-
 if __name__ == "__main__":
-    client.run('TOKEN')
+    bot.run('TOKEN')
