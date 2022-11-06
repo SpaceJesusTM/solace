@@ -6,11 +6,54 @@ from twilio.rest import Client
 class announcements(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.announce_channel = ""
 
     @commands.command()
-    async def announce(self, ctx, body):
+    @commands.has_permissions(administrator=True)
+    async def set_announce(self, ctx, channel):
+        self.announce_channel = channel
+        await ctx.send("Announcement channel set to " + channel)
+    
+    @commands.command()
+    @commands.has_permissions(administrator=True)
+    async def text_list(self, ctx):
+        total_contacts = 0
         for user in contacts:
+            total_contacts += 1
+            await ctx.send(user + " : " + contacts[user])
+        await ctx.send("Total contacts: " + str(total_contacts))
+
+    @commands.command()
+    @commands.has_permissions(administrator=True)
+    async def announce(self, ctx, lvl, body):
+        if self.announce_channel == "":
+            await ctx.send("Please set the announcement channel first!")
+        
+        channel = discord.utils.get(ctx.guild.channels, name=self.announce_channel)
+        if lvl == "1":
+            await channel.send('@everyone ' + body)
+            # await self.announce_channel.send(body)
+            await ctx.send(f"Announcement sent via {self.announce_channel}!")
+        elif lvl == "2":
+            for user in contacts:
+                send_sms(body, contacts[user])
+            await ctx.send("Announcement sent via text!")
+        elif lvl == "3":
+            await channel.send('@everyone ' + body)
+            for user in contacts:
+                send_sms(body, contacts[user])
+            await ctx.send(f"Announcement sent via text and {self.announce_channel}!")
+        else:
+            await ctx.send("Invalid level!")
+
+    @commands.command()
+    @commands.has_permissions(administrator=True)
+    async def send_pm(self, ctx, user, body):
+        if user in contacts:
             send_sms(body, contacts[user])
+            await ctx.send(f"Message sent to {user}!")
+        else:
+            await ctx.send("Invalid user!")
 
     @commands.command()
     async def add_number(self, ctx, num):

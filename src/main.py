@@ -2,7 +2,6 @@ import discord
 import asyncio
 from discord.ext import commands
 from cogs import discussion, announcements, channels, mail, chat
-# from cogs
 
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 

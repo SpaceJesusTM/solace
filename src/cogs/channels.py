@@ -5,8 +5,8 @@ class channels(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-
     @commands.command()
+    @commands.has_permissions(administrator=True)
     async def new_text_channels(self, ctx, channel_name, num_channels):
         for i in range(int(num_channels)):
             await ctx.guild.create_text_channel(channel_name + str(i))
@@ -15,6 +15,7 @@ class channels(commands.Cog):
 
 
     @commands.command()
+    @commands.has_permissions(administrator=True)
     async def new_voice_channels(self, ctx, channel_name, num_channels):
         for i in range(int(num_channels)):
             await ctx.guild.create_voice_channel(channel_name + str(i))
@@ -23,6 +24,7 @@ class channels(commands.Cog):
 
 
     @commands.command()
+    @commands.has_permissions(administrator=True)
     async def delete_channels(self, ctx, channel_name):
         count = 0
         for guild in self.bot.guilds:

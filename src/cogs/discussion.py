@@ -10,6 +10,7 @@ class discussion(commands.Cog):
         self.threads_channel = ""
     
     @commands.command()
+    @commands.has_permissions(administrator=True)
     async def set_threads(self, ctx, channel):
         self.threads_channel = channel
         await ctx.send("Threads channel set to " + channel)
