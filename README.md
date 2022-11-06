@@ -1,6 +1,6 @@
 # Solace
 ## What Is Solace?
-Solace is a Discord bot that that acts as an education management tool used by both students and teachers. With the 
+Solace is a Discord bot that acts as an education management tool used by both students and teachers. With the 
 increasing popularity of Discord, Solace provides a way to integrate practical features in an easy-to-use and accessible way.
 
 ## Invite Link
@@ -34,7 +34,8 @@ to resolve this issue.\
 ### Adding and Removing Breakout Rooms (Channels):
 ```!new_text_channels <name> <num>```: ADMIN CMD. Create num number of text channels named name.\
 ```!new_voice_channels <name> <num>```: ADMIN CMD. Create num number of voice channels named name.\
-```!delete_channels <name>```: ADMIN CMD. Delete all channels named <name>.
+```!delete_channels <name>```: ADMIN CMD. Delete all channels named <name>.\
+The first page and ID of each thread will be posted in the channel set by ```!set_threads <channel>```.
 
 ### Discussion Posts:
 ```!reply_threads <thread_id>```: Adds your reply to the chain of messages in the thread.\
@@ -44,6 +45,12 @@ to resolve this issue.\
 ### General:
 ```!enter_course_info```: Triggers the updating of course information embed with message input and prompts.\
 ```!command_list```: Produce this list of all solace-bot commands.
+
+### Instructor Mail Information:
+After using ```!set_mail <channel>``` students are able to message the bot which will display them in the set channel. Those with access to the channel are able to @ a user in the channel which will DM the requisite user a response.
+
+### Solace NLP Chat Information:
+After using ```!set_chat <channel>``` users are able to message set channel and talk with Solace! Solace's responses are based on a model created by the neuralintents libarary using ```intents.json```.
 
 
 ## Credits
