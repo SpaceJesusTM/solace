@@ -2,7 +2,6 @@ import discord
 import asyncio
 from discord.ext import commands
 from cogs import discussion, announcements, channels, mail, chat
-# from cogs
 
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
@@ -16,4 +15,4 @@ async def on_ready():
     print('Bot is ready!')
 
 if __name__ == "__main__":
-    bot.run('MTAzODQ4MjAwOTU0MDAxMDA5OA.GIn-Vp.fKB90xhHpwUPJ4IApgliOurCXCs5FqMXa9-OEc')
+    bot.run('TOKEN')
