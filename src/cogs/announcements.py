@@ -65,7 +65,6 @@ class announcements(commands.Cog):
     async def remove_number(self, ctx):
         name = ctx.message.author
         contacts.pop(name.name)
-        print(contacts)
         await ctx.send(str(name)[:-5] + ", you will no longer receive texts.")
 
 # Your Account SID from twilio.com/console

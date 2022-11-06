@@ -4,19 +4,49 @@ from discord.ext import commands
 from neuralintents import GenericAssistant
 
 # global embed variables
-help_embed = discord.Embed(title='General Commands', color=discord.Colour.gold())
-help_embed.add_field(name='Announcements: `!announce`', # TODO: finish alphabetical?
-                     value="Send a text to registered phone numbers. Message must be surrounded by \"\".", inline=False)
-help_embed.add_field(name='Announcements: `!add_number`',
+help_embed = discord.Embed(title='All Commands', color=discord.Colour.gold())
+help_embed.add_field(name='Set-up (before usage): `!restart`',
+                     value="ADMIN CMD. Restart the bot before first use, or if bugs are encountered.", inline=False)
+help_embed.add_field(name='Set-up (before usage): `!set_announce <channel>`',
+                     value="ADMIN CMD. Sets the announcement channel.", inline=False)
+help_embed.add_field(name='Set-up (before usage): `!set_chat <channel>`',
+                     value="ADMIN CMD. Sets the chat with Solace channel.", inline=False)
+help_embed.add_field(name='Set-up (before usage): `!set_threads <channel>`',
+                     value="ADMIN CMD. Sets the threads post channel.", inline=False)
+help_embed.add_field(name='Set-up (before usage): `!set_mail <channel>`',
+                     value="ADMIN CMD. Sets the instructor mail channel.", inline=False)
+help_embed.add_field(name='Announcements: `!announce <level> <message>`',
+                     value="ADMIN CMD. Send a text to the Announcement channel and/or registered "
+                           "phone numbers based on level (1, 2, 3). Message must be surrounded by "
+                           "\"\".", inline=False)
+help_embed.add_field(name='Announcements: `!text_list`',
+                     value="ADMIN CMD. Displays all registered users and numbers", inline=False)
+help_embed.add_field(name='Announcements: `!send_pm <user> <message>`',
+                     value="ADMIN CMD. Send a private text to a registered user. Message must be surrounded by "
+                           "\"\".")
+help_embed.add_field(name='Announcements: `!add_number <number>`',
                      value="Add your phone number to the registered number list. Example: +10009998888", inline=False)
 help_embed.add_field(name='Announcements: `!remove_number`',
                      value="Removes your phone number from the registered number list.", inline=False)
-help_embed.add_field(name='Temporary Chats: `!new_text_channel`',
-                     value="Parameters: name (no spaces) int (number of channels)", inline=False)
-help_embed.add_field(name='Temporary Chats: `!new_voice_channel`',
-                     value="Parameters: name (no spaces) int (number of channels)", inline=False)
-help_embed.add_field(name='Temporary Chats: `!delete_channel`', value="Parameters: name (name of channels to delete)",
+help_embed.add_field(name='Channels: `!new_text_channels <name> <num>`',
+                     value="ADMIN CMD. Create num number of text channels named name.", inline=False)
+help_embed.add_field(name='Channels: `!new_voice_channels <name> <num>`',
+                     value="ADMIN CMD. Create num number of voice channels named name.", inline=False)
+help_embed.add_field(name='Channels: `!delete_channels <name>`',
+                     value="ADMIN CMD. Delete all channels named name.", inline=False)
+help_embed.add_field(name='General: `!command_list`',
+                     value="Produce this list of all solace-bot commands.", inline=False)
+help_embed.add_field(name='General: `!enter_course_info`',
+                     value="Triggers the updating of course information embed with message input and prompts.",
                      inline=False)
+help_embed.add_field(name='Discussion Threads: `!reply_threads <tread_id>`',
+                     value="Adds your reply to the chain of messages in the thread.", inline=False)
+help_embed.add_field(name='Discussion Threads: `!view_thread <tread_id>`',
+                     value="Displays the thread given by thread_id", inline=False)
+help_embed.add_field(name='Discussion Threads: `!new_thread`',
+                     value="Triggers the creation of a new discussion thread through message input and prompts.",
+                     inline=False)
+
 
 support_embed = discord.Embed(title='Mental Health Support Resources', colour=discord.Colour.blue())
 support_embed.add_field(name="If at immediate risk, call `911`",
@@ -90,12 +120,24 @@ print("Solace AI running...")
 class chat(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.chat_channel = ""
+
+    @commands.command()
+    async def command_list(self, ctx):
+        await ctx.send(embed=help_embed)
+        await ctx.send("See https://github.com/SpaceJesusTM/solace for more details!")
+
+    @commands.command()
+    @commands.has_permissions(administrator=True)
+    async def set_chat(self, ctx, channel):
+        self.chat_channel = channel
+        await ctx.send("Chat channel set to " + channel)
 
     @commands.Cog.listener()
     async def on_message(self, message: discord.Message):
         if message.author == self.bot.user:
             return
-        if message.channel.name == "solace":
+        if message.channel.name == self.chat_channel:
             # if message.content.startswith("$solace"):
             # response = chatbot.request(message.content[6:])
             if not message.content.startswith("!"):
@@ -113,6 +155,7 @@ class chat(commands.Cog):
         #   await message.channel.send("sorry wrong channel")
 
     @commands.command(name="enter_course_info")
+    @commands.has_permissions(administrator=True)
     async def enter_course_info(self, ctx):
         def check(m):
             return m.author.id == ctx.author.id
