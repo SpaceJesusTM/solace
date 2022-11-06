@@ -21,7 +21,7 @@ async def on_ready():
                 text_channel_list.append(channel)
     for channel in text_channel_list:
         await channel.send("Bot is ready!")
-    activity = discord.Game(name="$command_list for info...", type=3)
+    activity = discord.Game(name="!command_list for info...", type=3)
     await bot.change_presence(status=discord.Status.online, activity=activity)
     print('Bot is ready!')
 
