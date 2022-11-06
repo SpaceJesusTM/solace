@@ -4,16 +4,16 @@ Solace is a Discord bot that that acts as an education management tool used by b
 increasing popularity of Discord, Solace provides a way to integrate practical features in an easy-to-use and accessible way.
 
 ## Invite Link
-To invite Solace to your own server:
+To invite Solace to your own server:\
 https://discord.com/api/oauth2/authorize?client_id=1038482009540010098&permissions=8&scope=bot 
 
 ## Installation
 To run the Solace on your local machine with your own bot token* , you must first install the following libraries by running these commands:\
-```pip install discord.py```
-```pip install twilio```
-```pip install neuralintents```
+```pip install discord.py```\
+```pip install twilio```\
+```pip install neuralintents```\
 NOTE: M1/M2 Mac users may run into issues with dependency conflicts. Follow the suggestions given in the error message 
-to resolve this issue.
+to resolve this issue.\
 *Replace ```[TOKEN]``` in ```main.py``` with your own token.
 
 ## Commands
@@ -27,8 +27,8 @@ Set-Up (before usage):\
 Sending an SMS Announcement:\
 ```!announce <level> <message>```: ADMIN CMD. Send a text to the Announcement channel and/or registered phone numbers based on level (1, 2, 3). Message must be surrounded by "".\
 ```!text_list```: ADMIN CMD. Displays all registered users and numbers\
-```!send_pm <user> <message>```: ADMIN CMD. Send a private text to a registered user. Message must be surrounded by "".
-```!add_number <number>```: Add your phone number to the registered number list. Example: +10009998888
+```!send_pm <user> <message>```: ADMIN CMD. Send a private text to a registered user. Message must be surrounded by "".\
+```!add_number <number>```: Add your phone number to the registered number list. Example: +10009998888\
 ```!remove_number```: Removes your phone number from the registered number list.
 
 Adding and Removing Breakout Rooms (Channels):\
@@ -47,6 +47,9 @@ General:\
 
 
 ## Credits
-https://youtube.com/playlist?list=PLJXEdhN0Tc3LRT716enS1LcY4OF8vg1VA 
+https://youtube.com/playlist?list=PLJXEdhN0Tc3LRT716enS1LcY4OF8vg1VA \
+https://www.youtube.com/watch?v=urlkrueSXpI&t=33s\
+https://stackoverflow.com/questions/61787520/i-want-to-make-a-multi-page-help-command-using-discord-py
+
 
 
