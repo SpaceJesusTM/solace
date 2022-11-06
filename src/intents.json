@@ -1,0 +1,120 @@
+{
+  "intents": [
+    {
+      "tag": "BotIntro-1",
+      "patterns": [
+        "Hi", "Hi Solace",
+        "hello",
+        "Good Day",
+        "Good Afternoon",
+        "Good Morning",
+        "morning"
+      ],
+      "responses": [
+        "BI01-Hello!",
+        "BI01-Hi!",
+        "BI01-:)",
+        "BI01-Aloha!",
+        "BI01-Hi There!",
+        "BI01-What's up? :)"
+      ]
+    },
+    {
+      "tag": "BotIntro-2",
+      "patterns": [
+        "What is your name?",
+        "Who are you?",
+        "What are you called?"
+      ],
+      "responses": [
+        "BI02-I'm Solace!",
+        "BI02-My name is Solace",
+        "BI02-You can call me Solace"
+      ]
+    },
+    {
+      "tag": "BotIntro-3",
+      "patterns": [
+        "How old are you?",
+        "How long have you existed?",
+        "When were you created?"
+      ],
+      "responses": [
+        "BI03-I was born today!",
+        "BI03-I am very young but very wise ;)"
+      ]
+    },
+    {
+      "tag": "BotIntro-4",
+      "patterns": [
+        "What are you?",
+        "Why are you here?",
+        "What are you for?",
+        "What is the point of you?",
+        "Why do you exist?",
+        "What can you do?",
+        "What do you do?"
+      ],
+      "responses": [
+        "BI04-I'm here to chat with you!",
+        "BI04-I'm here to assist you!",
+        "BI05-I can answer any questions you have or just talk with you"
+      ]
+    },
+    {
+      "tag": "BotIntro-5",
+      "patterns": [
+        "Good",
+        "Great",
+        "Amazing",
+        "Pretty Good",
+        "Not Bad",
+        "Could be be better"
+      ],
+      "responses": [
+        "BI05-(T-T)", "BI05-:]", "BI05-(@_@)", "BI05-(=.=)",
+        "BI05-:>", "BI05-(~.~)"
+      ]
+    },
+    {
+      "tag": "HelpCommands-1",
+      "patterns": [
+        "What command should I use to do this?",
+        "What command gives me course information?",
+        "list commands",
+        "What are the commands of this bot?",
+        "What commands exist?",
+        "What commands are there?"
+      ],
+      "responses": [
+        "HC01-Here's the command documentation. Hope this helps!"
+      ]
+    },
+    {
+      "tag": "CourseQuestion-1",
+      "patterns": [
+        "I'm lost about this course",
+        "What is going on in this course?",
+        "Give me the course information",
+        "What can you tell me about this course?",
+        "What do you know about this course?",
+        "What's the course information?"
+      ],
+      "responses": [
+        "CQ01-Well, here's what I can tell you so far..."
+      ]
+    },
+    {
+      "tag": "CourseQuestion-2",
+      "patterns": [
+        "What is this course?",
+        "what's the name of this course?",
+        "Which course is this?"
+      ],
+      "responses": [
+        "CQ02-Good question!"
+      ]
+    }
+
+  ]
+}
