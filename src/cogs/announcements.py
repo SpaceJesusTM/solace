@@ -3,7 +3,7 @@ from discord.ext import commands
 from twilio.rest import Client
 
 
-class announcments(commands.Cog):
+class announcements(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
