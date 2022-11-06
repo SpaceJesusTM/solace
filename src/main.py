@@ -3,7 +3,7 @@ import asyncio
 import os
 import sys
 from discord.ext import commands
-from cogs import discussion, announcements, channels, mail#, chat
+from cogs import discussion, announcements, channels, mail, chat
 
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
@@ -13,7 +13,7 @@ async def on_ready():
     await bot.add_cog(announcements.announcements(bot))
     await bot.add_cog(channels.channels(bot))
     await bot.add_cog(mail.mail(bot))
-    #await bot.add_cog(chat.chat(bot))
+    await bot.add_cog(chat.chat(bot))
     text_channel_list = []
     for guild in bot.guilds:
         for channel in guild.text_channels:
@@ -38,4 +38,4 @@ async def restart(ctx):
     restart_program()
 
 if __name__ == "__main__":
-    bot.run('MTAzODQ4MjAwOTU0MDAxMDA5OA.GgPDDz.bAeB7ofmCtKhHMDqa5Se4hLRBkZpvf0FISOlpE')
+    bot.run('TOKEN')
