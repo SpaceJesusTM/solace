@@ -5,7 +5,7 @@ from neuralintents import GenericAssistant
 
 # global embed variables
 help_embed = discord.Embed(title='General Commands', color=discord.Colour.gold())
-help_embed.add_field(name='Announcements: `!announce`',
+help_embed.add_field(name='Announcements: `!announce`', # TODO: finish alphabetical?
                      value="Send a text to registered phone numbers. Message must be surrounded by \"\".", inline=False)
 help_embed.add_field(name='Announcements: `!add_number`',
                      value="Add your phone number to the registered number list. Example: +10009998888", inline=False)
@@ -19,42 +19,66 @@ help_embed.add_field(name='Temporary Chats: `!delete_channel`', value="Parameter
                      inline=False)
 
 support_embed = discord.Embed(title='Mental Health Support Resources', colour=discord.Colour.blue())
+support_embed.add_field(name="If at immediate risk, call `911`",
+                        value="Call immediately if you are worried about hurting yourself or others "
+                              "or if you have the means to and have done so before", inline=False)
+support_embed.add_field(name="U of T My Student Support Program: call `1-844-451-9700`",
+                        value="For confidential 24/7 emergency mental health counselling in 146 languages",
+                        inline=False)
+support_embed.add_field(name="Good2Talk Ontario Student Helpline: call `1-866-925-5454`",
+                        value="24/7 professional counseling, information and referrals helpline for "
+                              "mental health, addictions and well-being.",
+                        inline=False)
+support_embed.add_field(name="U of T Student Life Contacts",
+                        value="If you feel distressed, please reach out to one of these resources:"
+                              "https://studentlife.utoronto.ca/task/support-when-you-feel-distressed/ for solace.",
+                        inline=False)
 
 course_embed_updated = False
 course_embed = discord.Embed(title="Course Information", color=discord.Colour.dark_red())
 course_embed.add_field(name="No Course Info", value="Instructor has not updated Course Info", inline=False)
 
 
-def discord_embed(message: discord.Message, tag: str) -> Optional[discord.Embed]:
-    if tag == "HC01":
-        return help_com_1(message)
-    elif tag == "CQ01":
-        return course_question_1(message)
+def discord_embed(tag: str) -> Optional[discord.Embed]:
+    if "HC" in tag:
+        return help_com()
+    elif "CQ" in tag:
+        return course_question()
+    elif "DT" in tag:
+        return dark_times()
     else:
         return None
 
 
+def help_com() -> discord.Embed:
+    return help_embed
+
+
+def course_question() -> Optional[discord.Embed]:
+    return course_embed
+
+
+def dark_times() -> Optional[discord.Embed]:
+    return support_embed
+
+
 def extra_line(message: discord.Message, tag: str) -> str:
-    if tag == "BI01":
-        return bot_intro_1(message)
+    if tag == "BC01":
+        return bot_convo_1(message)
+    if tag == "BC07":
+        return bot_convo_7()
     else:
         return ""
 
 
-def bot_intro_1(message: discord.Message) -> str:
+def bot_convo_1(message: discord.Message) -> str:
     reply = "How's it going, " + message.author.name + "?"
     return reply
 
+def bot_convo_7() -> str:
+    reply = "https://tenor.com/view/love-laughing-cute-gif-14468800"
+    return reply
 
-def help_com_1(message: discord.Message) -> discord.Embed:
-    return help_embed
-
-
-def course_question_1(message: discord.Message) -> Optional[discord.Embed]:
-    return course_embed
-
-
-discord_functions = {'BotIntro-1': bot_intro_1}
 
 chatbot = GenericAssistant(intents='intents.json', model_name="solace")
 chatbot.train_model()
@@ -80,12 +104,9 @@ class chat(commands.Cog):
                 response = response[5:]
                 await message.channel.send(response)
                 second_line = extra_line(message, tag)
-                print("second_line: " + second_line)
-                print("tag: " + tag)
                 if second_line != "":
-                    print(second_line)
                     await message.channel.send(second_line)
-                embed = discord_embed(message, tag)
+                embed = discord_embed(tag)
                 if embed != None:
                     await message.channel.send(embed=embed)
         # else:

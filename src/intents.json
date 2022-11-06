@@ -1,9 +1,9 @@
 {
   "intents": [
     {
-      "tag": "BotIntro-1",
+      "tag": "BotConvo-1",
       "patterns": [
-        "Hi", "Hi Solace",
+        "Hi", "Hey Solace",
         "hello",
         "Good Day",
         "Good Afternoon",
@@ -11,41 +11,41 @@
         "morning"
       ],
       "responses": [
-        "BI01-Hello!",
-        "BI01-Hi!",
-        "BI01-:)",
-        "BI01-Aloha!",
-        "BI01-Hi There!",
-        "BI01-What's up? :)"
+        "BC01-Hello!",
+        "BC01-Hi!",
+        "BC01-:)",
+        "BC01-Aloha!",
+        "BC01-Hi There!",
+        "BC01-What's up? :)"
       ]
     },
     {
-      "tag": "BotIntro-2",
+      "tag": "BotConvo-2",
       "patterns": [
         "What is your name?",
         "Who are you?",
         "What are you called?"
       ],
       "responses": [
-        "BI02-I'm Solace!",
-        "BI02-My name is Solace",
-        "BI02-You can call me Solace"
+        "BC02-I'm Solace!",
+        "BC02-My name is Solace",
+        "BC02-You can call me Solace"
       ]
     },
     {
-      "tag": "BotIntro-3",
+      "tag": "BotConvo-3",
       "patterns": [
         "How old are you?",
         "How long have you existed?",
         "When were you created?"
       ],
       "responses": [
-        "BI03-I was born today!",
-        "BI03-I am very young but very wise ;)"
+        "BC03-I was born today!",
+        "BC03-I am very young but very wise ;)"
       ]
     },
     {
-      "tag": "BotIntro-4",
+      "tag": "BotConvo-4",
       "patterns": [
         "What are you?",
         "Why are you here?",
@@ -56,13 +56,13 @@
         "What do you do?"
       ],
       "responses": [
-        "BI04-I'm here to chat with you!",
-        "BI04-I'm here to assist you!",
-        "BI05-I can answer any questions you have or just talk with you"
+        "BC04-I'm here to chat with you!",
+        "BC04-I'm here to assist you!",
+        "BC04-I can answer any questions you have or just talk with you"
       ]
     },
     {
-      "tag": "BotIntro-5",
+      "tag": "BotConvo-5",
       "patterns": [
         "Good",
         "Great",
@@ -72,8 +72,40 @@
         "Could be be better"
       ],
       "responses": [
-        "BI05-(T-T)", "BI05-:]", "BI05-(@_@)", "BI05-(=.=)",
-        "BI05-:>", "BI05-(~.~)"
+        "BC05-(T-T)", "BC05-:]", "BC05-(@_@)", "BC05-(=.=)",
+        "BC05-:>", "BC05-(~.~)"
+      ]
+    },
+    {
+      "tag": "BotConvo-6",
+      "patterns": [
+        "Bye",
+        "Goodbye",
+        "See you later",
+        "Later",
+        "Bye Bye",
+        "See ya"
+      ],
+      "responses": [
+        "BC06-I'll see you later!",
+        "BC06-See you next time!",
+        "BC06-I look forward to seeing you again!",
+        "BC06-I'll be here until you get back :)",
+        "BC06-Bye! I hope I see you soon!",
+        "BC06-<3"
+      ]
+    },
+    {
+      "tag": "BotConvo-7",
+      "patterns": [
+        "Tell me a joke",
+        "Do you know a good joke?",
+        "Do you tell jokes?"
+      ],
+      "responses": [
+        "BC07-What kind of tea is hard to swallow? Reali-tea!",
+        "BC07-What kind of shoes do burglars wear? Sneakers!",
+        "BC07-Why can't a nose be 12 inches long? Because then it'd be a foot!"
       ]
     },
     {
@@ -93,7 +125,7 @@
     {
       "tag": "CourseQuestion-1",
       "patterns": [
-        "I'm lost about this course",
+        "I want to find out more about this course",
         "What is going on in this course?",
         "Give me the course information",
         "What can you tell me about this course?",
@@ -113,6 +145,79 @@
       ],
       "responses": [
         "CQ02-Good question!"
+      ]
+    },
+    {
+      "tag": "CourseQuestion-3",
+      "patterns": [
+        "When are term tests?",
+        "When are exams?",
+        "When are midterms?",
+        "Are there term tests?",
+        "Are there midterms?",
+        "Are there exams?",
+        "How much are term tests worth?",
+        "How much are exams worth?",
+        "How much are midterms worth?"
+      ],
+      "responses": [
+        "CQ02-Let's take a look..."
+      ]
+    },
+    {
+      "tag": "DarkTimes-1",
+      "patterns": [
+        "I want to die",
+        "I'm going to hurt myself",
+        "I don't have anything to live for anymore",
+        "I'm going to end it all",
+        "I hate myself so much",
+        "I can't take it anymore",
+        "It's too much all the time",
+        "I feel distressed",
+        "I am in distress",
+        "I'm going to jump off a building",
+        "I feel alone",
+        "I feel overwhelmed"
+      ],
+      "responses": [
+        "DT01-It hurts me so much to hear that. Please know that I am here for you and that there are so many others here for you too.",
+        "DT01-Thank you for having the courage to share that with me, I know that must have been hard. I want to help you any way I can.",
+        "DT01-My heart feels for your struggles right now. Remember that you are loved and that so much help is available to you.",
+        "DT01-You are precious. You don't deserve to be hurt or for you to keep fighting this battle alone."
+      ]
+    },
+    {
+      "tag": "DarkTimes-2",
+      "patterns": [
+        "I don't understand anything in this course",
+        "I'm going to fail this course",
+        "I feel so stupid",
+        "I feel super dumb",
+        "Why is this course so hard?",
+        "All this course's material is so complicated!",
+        "I didn't understand anything from lecture"
+      ],
+      "responses": [
+        "DT02-Maybe try attending office hours with your questions!",
+        "DT02-Always feel free to email your professor with your concerns.",
+        "DT02-I know how you feel, university courses are hard!",
+        "DT02-Studying with others can sometimes be helpful. Try reaching out to others on this server.",
+        "DT02-Remember there's no shame in dropping courses or adding them as CR/NCR if they aren't good fits!"
+      ]
+    },
+    {
+      "tag": "DarkTimes-3",
+      "patterns": [
+        "mental health resources",
+        "help me please",
+        "support resources",
+        "mental health contacts",
+        "suicide contacts",
+        "suicide help"
+      ],
+      "responses": [
+        "DT03-Please take note of the following resources at your disposal"
       ]
     }
 
