@@ -39,9 +39,9 @@ help_embed.add_field(name='General: `!command_list`',
 help_embed.add_field(name='General: `!enter_course_info`',
                      value="Triggers the updating of course information embed with message input and prompts.",
                      inline=False)
-help_embed.add_field(name='Discussion Threads: `!reply_threads <tread_id>`',
+help_embed.add_field(name='Discussion Threads: `!reply_threads <thread_id>`',
                      value="Adds your reply to the chain of messages in the thread.", inline=False)
-help_embed.add_field(name='Discussion Threads: `!view_thread <tread_id>`',
+help_embed.add_field(name='Discussion Threads: `!view_thread <thread_id>`',
                      value="Displays the thread given by thread_id", inline=False)
 help_embed.add_field(name='Discussion Threads: `!new_thread`',
                      value="Triggers the creation of a new discussion thread through message input and prompts.",
