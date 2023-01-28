@@ -3,6 +3,11 @@
 Solace is a Discord bot that acts as an education management tool used by both students and teachers. With the 
 increasing popularity of Discord, Solace provides a way to integrate practical features in an easy-to-use and accessible way.
 
+## Devpost Link 
+Project for NewHacks' 24 hour hackathon, placing third overall.
+https://devpost.com/software/education-management-discord-bot?ref_content=my-projects-tab&ref_feature=my_projects
+
+
 ## Invite Link
 To invite Solace to your own server:\
 https://discord.com/api/oauth2/authorize?client_id=1038482009540010098&permissions=8&scope=bot 
